@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+        <style>
+            
+        #popup{
+            position: fixed;
+            top: 50px;
+            margin-left: 500px;
+            }
+            #register{
+                margin-left: 30px;
+                
+            }
+            label{
+                color: blue;
+            font-weight: bold;
+            text-transform: uppercase;
+            }
+          
+            legend{
+                font-variant: small-caps;
+                color: orangered;
+            font-weight: bold;
+                text-decoration: underline;
+            }
+            h4{
+                color: blue;
+                font-weight: bold;
+            }
+
+            .container{
+                margin-top: 20px;
+            }
+            
+        </style>
+        <script>
+        
+        function pageLoad(){
+            document.getElementById("popup").style.display="none";
+        }
+
+        let registerClick=function(){
+            document.getElementById("popup").style.display="block";
+            document.getElementById("tName").innerHTML=document.getElementById("txtName").value;
+            document.getElementById("tEmail").innerHTML=document.getElementById("txtEmail").value;
+            document.getElementById("tPassword").innerHTML=document.getElementById("txtPassword").value;
+            document.getElementById("tMobile").innerHTML=document.getElementById("txtMobile").value;
+            //document.getElementById().innerHTML=document.getElementById().value;
+                           
+            }
+            function confirm(){
+                document.getElementById("popup").style.display="none";
+                alert("Registration succesfull");
+            }
+                    
+         </script>
+    </head>
+    <body onload="pageLoad()" >
+        <div class="container" style="width: 400px;" id="register">
+            <form action="" name="frmRegister">
+                <fieldset>
+                    <legend class="btn btn-danger" id="legend">Register</legend>
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        <div>
+                            <input type="text" id="txtName" class="form-control">
+                        </div>
+                    </div>
+
+                    <!--<div class="form-group">
+                        <label for="">Name</label>
+                        <div>
+                            <input type="text" id="txtName" class="form-control">
+                        </div>
+                    </div>
+                -->
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <div>
+                            <input type="email" id="txtEmail" class="form-control" pattern="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Password</label>
+                        <div>
+                            <input type="password" id="txtPassword" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Mobile</label>
+                        <div>
+                            <input type="text" id="txtMobile" pattern="\+91[0-9]{10}" class="form-control" placeholder="+91**********">
+                        </div>
+                    </div>
+                    <div class="form-group" align="center">
+                        <input type="button" value="submit" class="btn btn-primary" onclick="registerClick()">
+                    </div>
+                </fieldset>
+            </form>
+
+            <div id="popup" style="width: 400px;">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 align="center">Confirmation</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <tr>
+                            <th>Name</th>
+                            <td id="tName"></td>
+                            </tr>
+                            <tr>
+                            <th>Email</th>
+                            <td id="tEmail"></td>
+                            </tr>
+                            <tr>
+                            <th>Password</th>
+                            <td id="tPassword"></td>
+                            </tr>
+                            <tr>
+                            <th>Mobile</th>
+                            <td id="tMobile"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="card-footer" align="center">
+                        <input type="button" value="Confirm" class="btn btn-success" onclick="confirm()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
